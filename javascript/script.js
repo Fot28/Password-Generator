@@ -90,21 +90,44 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  var passwordlength = prompt("How many characters would you like your password to contain?")
+  while (passwordlength < 8 || passwordlength > 128){
+    alert("Your password must contain at least 8 characters but no more than 128.")
+    passwordlength = prompt("How many characters would you like your password to contain?")
+  }
+   console.log(passwordlength);
+  var numbers =  confirm("Would you like to use numbers?")
+  var lowerCase =  confirm("Would you like to use lowercase characters?")
+  var upperCase =  confirm("Would you like to use uppercase characters?")
+  var specialChars =  confirm("Would you like to use special characters?")
+  while (!(numbers || lowerCase || upperCase || specialChars)){
+    alert("You must use at least one of the following numbers, lowercase, uppercase orspecial characters to continue.")
+    numbers =  confirm("Would you like to use numbers?")
+    lowerCase =  confirm("Would you like to use lowercase characters?")
+    upperCase =  confirm("Would you like to use uppercase characters?")
+    specialChars =  confirm("Would you like to use special characters?")
+  }
+  console.log(numbers);
+  console.log(lowerCase);
+  console.log(upperCase);
+  console.log(specialChars);
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  
 }
 
 // Function to generate password with user input
-function generatePassword() {
-
+function generatePassword() {  
+ 
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+
 
 // Write password to the #password input
 function writePassword() {
