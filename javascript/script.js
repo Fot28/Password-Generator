@@ -92,44 +92,36 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   
-  var characterOptions = {
-    numbers: null,
-    lowerCase: null,
-    upperCase: null,
-    specialChars: null
-  }
-  
+  // Ask user User to insert a valid password length and alert him of the conditions
   var passwordlength = prompt("How many characters would you like your password to contain?")
-  while (passwordlength < 8 || passwordlength > 128){
-    alert("Your password must contain at least 8 characters but no more than 128.")
+  while (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength) ){
+    alert("Your password must contain at least 8 characters but no more than 128 and your input must be number.")
     passwordlength = prompt("How many characters would you like your password to contain?")
   }
-  
-  characterOptions.numbers =  confirm("Would you like to use numbers?")
-  characterOptions.lowerCase =  confirm("Would you like to use lowercase characters?")
-  characterOptions.upperCase =  confirm("Would you like to use uppercase characters?")
-  characterOptions.specialChars =  confirm("Would you like to use special characters?")
-  while (!(characterOptions.numbers || characterOptions.lowerCase || characterOptions.upperCase || characterOptions.specialChars)){
-    alert("You must use at least one of the following numbers, lowercase, uppercase orspecial characters to continue.")
-    characterOptions.numbers =  confirm("Would you like to use numbers?")
-    characterOptions.lowerCase =  confirm("Would you like to use lowercase characters?")
-    characterOptions.upperCase =  confirm("Would you like to use uppercase characters?")
-    characterOptions.specialChars =  confirm("Would you like to use special characters?")
+  // Ask user User which characters need to be included in the password 
+  // and alert him in case he don't choose any
+  var charArray = []
+  while (!charArray.length) {
+    if (confirm("Would you like to use numbers?")) charArray.push(numericCharacters);
+    if (confirm("Would you like to use lowercase characters?")) charArray.push(lowerCasedCharacters);
+    if (confirm("Would you like to use uppercase characters?")) charArray.push(upperCasedCharacters);
+    if (confirm("Would you like to use special characters?")) charArray.push(specialCharacters);
+    if (!charArray.length) alert("You must use at least one of the following numbers, lowercase, uppercase or special characters to continue.");
   }
- 
-  return {characterOptions, passwordlength};
+  
+  // Return password options values
+  return {charArray, passwordlength};
 }
 
-var options = getPasswordOptions();
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-  
+function getRandom() {
+   
 }
-
+    
 // Function to generate password with user input
 function generatePassword() {  
-getPasswordOptions()
+
 }
 
 
