@@ -95,7 +95,7 @@ function getPasswordOptions() {
   // Ask user User to insert a valid password length and alert him of the conditions
   var passwordlength = prompt("How many characters would you like your password to contain?")
   while (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength) ){
-    alert("Your password must contain at least 8 characters but no more than 128 and your input must be number.")
+    alert("Your password must contain at least 8 characters but no more than 128 and your input must be an integer number.")
     passwordlength = prompt("How many characters would you like your password to contain?")
   }
   // Ask user User which characters need to be included in the password 
@@ -138,7 +138,14 @@ function getRandom() {
     
 // Function to generate password with user input
 function generatePassword() {  
+  var password = getRandom();
 
+  // Convert password to an array and shuffle it
+  var passwordArray = password.split('');
+  var shuffledArr = passwordArray.sort(() => Math.random() - 0.5);
+
+  // Convert shuffled array back to a string and return
+  return password = shuffledArr.join('');
 }
 
 
