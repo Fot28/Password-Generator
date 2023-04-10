@@ -22,7 +22,14 @@ var specialCharacters = [
   '~',
   '-',
   '_',
-  '.'
+  '.',
+  '&',
+  '"',
+  '*',
+  '<',
+  '>',
+  '=',
+  '|'
 ];
 
 // Array of numeric characters to be included in password
